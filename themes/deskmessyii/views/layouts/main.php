@@ -92,7 +92,14 @@
                     <div id="headerleft"></div>
                     <div id="logo">
                         <h2>Talha Büyükakkaşlar</h2>
-                        <p>Yazılım Programlama Birazda Oraya Buraya Dağılmış Düşünceler</p>
+                        <p>Yazılım Programlama Birazda Oraya Buraya Dağılmış Düşünceler
+                            <br />
+                            <a href="../site/feed"> 
+                                <img src="http://www.mozilla.org/images/feed-icon-28x28.png" alt="28 by 28 pixel feed icon" title="" />
+                                    
+                                </a>
+                        </p>
+                        
                     </div> <!-- #logo -->
                     <div id="cup"></div>
                     <div id="top-navigation-menu">

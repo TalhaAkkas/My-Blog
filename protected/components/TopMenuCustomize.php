@@ -34,7 +34,7 @@ class TopMenuCustomize extends TopMenu {
         $tempArray = array();
         foreach ($item->categories as $child) {
             array_push($tempArray, array('label' => $child->title,
-                'url' => '../../category/' . $child->id,
+                'url' => '../category/' . $child->id,
                 'childs' => $this->parseCategories($child))
             );
         }

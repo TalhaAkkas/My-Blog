@@ -13,6 +13,7 @@ require_once($yii);
 
 $app = Yii::createWebApplication($config);
 $app->run();
+
 if(count(Holder::model()->findAll()) === 0){
     $none = new Holder;
     $none->isvirtual = 1;

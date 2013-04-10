@@ -121,6 +121,7 @@ class ArticleController extends Controller {
             $model->attributes = $_POST['Article'];
             $model->title = $model->title;
             $model->holder0 = new Holder();
+            $model->holder0->date = date(DATE_ATOM, time());
             $model->holder0->save();
             $model->holder = $model->holder0->id;
             foreach (TagHolder::model()->findall('holder = \'' . $model->holder . '\'') as $th) {

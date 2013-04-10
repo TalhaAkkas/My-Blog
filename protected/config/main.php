@@ -9,7 +9,8 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'My Web Application',
     // preloading 'log' component
-    'preload' => array('log',
+    'preload' => array(
+		'log',
         'bootstrap', // preload the bootstrap component
         'jqueryui', // preload the bootstrap component
     ),
@@ -52,6 +53,8 @@ return array(
             'urlFormat' => 'path',
             'showScriptName'=>false,
             'rules' => array(
+                'site/feed'=>array('site/feed', 'urlSuffix'=>'.xml', 'caseSensitive'=>false),
+                'site/feed/<id:\d+>'=>'site/feed',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
@@ -64,7 +67,7 @@ return array(
         // uncomment the following to use a MySQL database
 
         'db' => array(
-            'connectionString' => 'mysql:host=127.0.0.1;dbname=coderblog', //;unix_socket=/tmp/mysql.sock',
+            'connectionString' => 'mysql:host=localhost:3306;dbname=coderblog', //;unix_socket=/tmp/mysql.sock',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => '',

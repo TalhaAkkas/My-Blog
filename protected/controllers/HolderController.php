@@ -9,7 +9,9 @@ class HolderController extends Controller {
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
     public $layout = '//layouts/column1';
-
+    public $footermenu = array();
+    public $tags = array();
+    public $articles = array();
     /**
      * @return array action filters
      */
@@ -52,8 +54,16 @@ class HolderController extends Controller {
             array_push($firstArray, array('href' => $article->id, 'text' => $article->title));
         }
         $this->footermenu['firstcolumn'] = array_reverse($firstArray);
-        $this->footermenu['secondcolumnheader'] = "Benzer Yazılar";
-        $this->footermenu['secondcolumn'] = array();
+        $this->footermenu['secondcolumnheader'] = "Bazı Yazılar";
+        $this->tags = Tag::model()->findAll();
+        foreach ($this->tags as $tags) {
+            foreach ($tags->holders as $holder) {
+                $prop = Article::model()->findAll("holder = ?", $holder->id);
+                foreach ($prop as $article) {
+                    array_push($this->articles, $article);
+                }
+            }
+        }
         return true;
     }
 

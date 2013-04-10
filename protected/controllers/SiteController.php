@@ -1,4 +1,5 @@
 <?php
+Yii::import('ext.feed.*');
 
 class SiteController extends Controller {
 
@@ -30,6 +31,7 @@ class SiteController extends Controller {
         }
         $this->footermenu['firstcolumn'] = array_reverse($firstArray);
         $this->footermenu['secondcolumnheader'] = "Bazı Yazılar";
+
         return true;
     }
 
@@ -111,4 +113,39 @@ class SiteController extends Controller {
         $this->redirect(Yii::app()->homeUrl);
     }
 
+
+    public function actionFeed($id = ''){
+        $posts =  Article::model()->findAll(array(
+            'order'=>'id DESC',
+        ));
+        $feed = new EFeed(EFeed::ATOM);
+        $feed->title = 'TalhAkkas.Com';
+        $feed->link = 'http://www.TalhAkkas.Com';
+ 
+        $feed->addChannelTag('updated', date(DATE_ATOM, time()));
+        $feed->addChannelTag('author', array('name'=>'Talha Büyükakkaşlar'));
+        $pop = 0;
+        foreach($posts as $post){
+            $val = $id == '';
+            $item = $feed->createNewItem();
+ 
+            $item->title = $post->title;
+            $item->link  = "http://www.talhakkas.com/article/".$post->id;
+            // we can also insert well formatted date strings
+            $item->date = date($post->holder0->date) ;
+            $item->description = $post->text;
+            foreach($post->holder0->tags as $t){
+               if(strtolower($id)==strtolower ($t->text))
+                   $val = true;
+            }
+            if($val){
+                $feed->addItem($item);
+                $pop ++;
+                if($pop > 20)
+                    break;
+            }
+        }
+        if($pop)
+            $feed->generateFeed();
+    }
 }

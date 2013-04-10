@@ -14,13 +14,7 @@ $this->menu = array(
     array('label' => 'Delete Tag', 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
     array('label' => 'Manage Tag', 'url' => array('admin')),
 );
-$articles = array();
-foreach ($model->holders as $holder) {
-    $prop = Article::model()->findAll("holder = ?", $holder->id);
-    foreach ($prop as $article) {
-        array_push($articles, $article);
-    }
-}
+
 ?>
 
 <h1><?php echo $model->text; ?></h1>

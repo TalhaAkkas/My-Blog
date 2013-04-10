@@ -62,8 +62,19 @@ class TagController extends Controller {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        $model = $this->loadModel($id);
+        $articles = array();
+        
+        foreach ($model->holders as $holder) {
+            $prop = Article::model()->findAll("holder = ?", $holder->id);
+            echo serialize ($prop);
+            foreach ($prop as $article) {
+                array_push($articles, $article);
+            }
+        }
         $this->render('view', array(
-            'model' => $this->loadModel($id),
+            'model' => $model,
+            'articles' => $articles
         ));
     }
 

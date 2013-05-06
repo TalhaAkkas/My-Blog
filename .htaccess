@@ -1,8 +1,9 @@
 Options +FollowSymLinks
 IndexIgnore */*
 RewriteEngine on
-RewriteBase /myblog
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-Redirect /* /myblog/
-RewriteRule ^.*$ /MyBlog/index.php [L]
+
+
+RewriteRule ^.*$ /index.php [L]

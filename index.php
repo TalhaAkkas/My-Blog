@@ -1,9 +1,10 @@
 <?php
 
+
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
-
+ // talha  akkas somali momali
 // remove the following lines when in production mode
 defined('YII_DEBUG') or define('YII_DEBUG',true);
 // specify how many levels of call stack should be shown in each log message
@@ -13,7 +14,6 @@ require_once($yii);
 
 $app = Yii::createWebApplication($config);
 $app->run();
-
 if(count(Holder::model()->findAll()) === 0){
     $none = new Holder;
     $none->isvirtual = 1;

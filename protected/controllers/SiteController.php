@@ -118,6 +118,7 @@ class SiteController extends Controller {
         $posts =  Article::model()->findAll(array(
             'order'=>'id DESC',
         ));
+        
         $feed = new EFeed(EFeed::ATOM);
         $feed->title = 'TalhAkkas.Com';
         $feed->link = 'http://www.TalhAkkas.Com';
@@ -134,6 +135,7 @@ class SiteController extends Controller {
             // we can also insert well formatted date strings
             $item->date = date($post->holder0->date) ;
             $item->description = $post->text;
+            
             foreach($post->holder0->tags as $t){
                if(strtolower($id)==strtolower ($t->text))
                    $val = true;
@@ -144,6 +146,7 @@ class SiteController extends Controller {
                 if($pop > 20)
                     break;
             }
+            
         }
         if($pop)
             $feed->generateFeed();

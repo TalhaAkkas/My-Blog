@@ -2,11 +2,12 @@
 bin-debug/
 bin-release/
 main.php
-assets\
-assets/
+\assets\
+/assets/
 # Project property files
 .actionScriptProperties
 .flexProperties
 .settings/
 .project
 /nbproject/private/
+/protected/config

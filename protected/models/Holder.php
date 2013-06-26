@@ -25,6 +25,13 @@
  */
 class Holder extends CActiveRecord
 {
+        private $_owner;
+        
+        public function getOwner(){
+            $criteria=new CDbCriteria;
+            $criteria->addCondition("holder = " . $this->id);
+            return Article::model()->findAll($criteria);
+        }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

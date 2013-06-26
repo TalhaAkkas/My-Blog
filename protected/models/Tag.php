@@ -9,7 +9,6 @@
  *
  * The followings are the available model relations:
  * @property Holder[] $holders
- * @property Article[] $articles
  */
 class Tag extends CActiveRecord
 {
@@ -93,7 +92,7 @@ class Tag extends CActiveRecord
         public function getArticles(){
             $articles = array();
             foreach ($this->holders as $holder) {
-                $articles = array_merge($articles, $holder->articles);
+                $articles = array_merge($articles, $holder->owner);
             }
             return $articles;
         }

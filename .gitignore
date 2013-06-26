@@ -9,3 +9,4 @@ assets/
 .flexProperties
 .settings/
 .project
+/nbproject/private/

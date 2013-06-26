@@ -18,21 +18,27 @@ $this->menu=array(
         ),
 );
 ?>
+<div class="large-12 columns">
+			
 
-<h1><?php // echo CHtml::encode($model->category);  ?></h1>
-<br />
+    <h3><?php echo CHtml::encode($model->title); ?></h3>
+    <br />
+    <input rows="6" cols="50" name="Article[tagstr]" id="<?php echo $model->id ?>dArticle_tagstr" type="hidden" >
+    <div id="<?php echo $model->id ?>dynamicInput"></div>
+    <script type="text/javascript">addTagsLinkedOnload("<?php echo $usingTags; ?>",'<?php echo $model->id ?>dynamicInput','<?php echo $model->id ?>dArticle_tagstr', '<?php echo Yii::app()->request->baseUrl ?>');</script>
 
-<h1><?php echo CHtml::encode($model->title); ?></h1>
-<br />
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel">
+                <?php echo $model->text;?>
+            </div>
+        </div>
+    </div>
 
-<?php
-echo $model->text;
-?>
-<input rows="6" cols="50" name="Article[tagstr]" id="<?php echo $model->id ?>dArticle_tagstr" type="hidden" >
-<div id="<?php echo $model->id ?>dynamicInput"></div>
-<script type="text/javascript">addTagsLinkedOnload("<?php echo $usingTags; ?>",'<?php echo $model->id ?>dynamicInput','<?php echo $model->id ?>dArticle_tagstr', '<?php echo Yii::app()->request->baseUrl ?>');</script>
 
-<br />
+    <br />
+    <?php $this->renderPartial('../comment/_comments', array('data'=>$model->holder0->comments, 'comment'=>$comment,'articleID'=>$model->id)); ?>
 
-<?php $this->renderPartial('../comment/_comments', array('data'=>$model->holder0->comments, 'comment'=>$comment,'articleID'=>$model->id)); ?>
+</div>
+
 

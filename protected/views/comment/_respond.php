@@ -1,4 +1,4 @@
-<div id="respond">
+<div id="respond" class="large-6 columns">
 <h3 id="reply-title">Bir Yorumda Bulunun
 <!--    <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">İptal et</a></small>-->
 </h3>

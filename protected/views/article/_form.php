@@ -37,7 +37,6 @@
         <?php echo $form->error($model, 'title'); ?>
     </div>
 
-    <fieldset style=" border: 0px">
         <div class="well form-horizontal">
             <?php echo $form->labelEx($model, 'article'); ?>
             <br />
@@ -73,7 +72,6 @@
 
 
 
-    </fieldset>
     <div class="well control-group">
         <br />
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

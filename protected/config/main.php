@@ -14,7 +14,7 @@ return array(
         'bootstrap', // preload the bootstrap component
         'jqueryui', // preload the bootstrap component
     ),
-    'theme' => 'deskmessyii',
+    'theme' => 'mythema',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',

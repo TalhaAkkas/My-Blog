@@ -27,7 +27,7 @@ function addInput(divName, badgeName, hidden){
     }
     else {
         $divid = 'badgespan' + counter;
-        var str = "<span  class='label label-{3}' onDblClick=\"onTagDblClick('{0}','{1}','{4}','{2}')\">{2}</span>"
+        var str = "<span  class='label success' onDblClick=\"onTagDblClick('{0}','{1}','{4}','{2}')\">{2}</span>"
         var newdiv = document.createElement('span');
         newdiv.innerHTML = str.format([divName, $divid ,badgeName, $styles[styleNum], hidden]);
         newdiv.style.padding = "5px 5px";
@@ -70,7 +70,7 @@ function addLinkedInput(divName, badgeName, id, baseurl){
     }
     else {
         $divid = 'badgespan' + counter;
-        var str = "<a href='{3}/tag/{0}'><span  class='label label-{2}' >{1}</span></a>";
+        var str = "<a href='{3}/tag/{0}'><span  class='label success' >{1}</span></a>";
         var newdiv = document.createElement('span');
         newdiv.innerHTML = str.format([id, badgeName, $styles[styleNum], baseurl]);
         newdiv.style.padding = "5px 5px";

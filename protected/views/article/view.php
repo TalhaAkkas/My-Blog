@@ -20,8 +20,10 @@ $this->menu=array(
 ?>
 <div class="large-12 columns">
 			
-
-    <h3><?php echo CHtml::encode($model->title); ?></h3>
+    <div>
+    <span><h3><?php echo CHtml::encode($model->title);?>  </h3> <?php echo $model->holder0-> date;?></span>
+    </div>
+    <br />
     <br />
     <input rows="6" cols="50" name="Article[tagstr]" id="<?php echo $model->id ?>dArticle_tagstr" type="hidden" >
     <div id="<?php echo $model->id ?>dynamicInput"></div>

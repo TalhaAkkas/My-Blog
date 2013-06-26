@@ -20,7 +20,6 @@ class HolderController extends Controller {
             'accessControl', // perform access control for CRUD operations
         );
     }
-
     /**
      * Specifies the access control rules.
      * This method is used by the 'accessControl' filter.

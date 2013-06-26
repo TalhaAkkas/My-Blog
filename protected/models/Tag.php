@@ -9,9 +9,12 @@
  *
  * The followings are the available model relations:
  * @property Holder[] $holders
+ * @property Article[] $articles
  */
 class Tag extends CActiveRecord
 {
+    
+        private $_articles;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -86,4 +89,12 @@ class Tag extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        public function getArticles(){
+            $articles = array();
+            foreach ($this->holders as $holder) {
+                $articles = array_merge($articles, $holder->articles);
+            }
+            return $articles;
+        }
 }
